@@ -5,7 +5,6 @@
   import Spacing from '$lib/public/legacy/spacing.svelte';
   import TeamSection from './team-section.svelte';
   import ScrollToTop from '$lib/components/scroll-to-top/scroll.svelte';
-  import { goto } from '$app/navigation';
   import { page } from '$app/stores';
   import type { PageData } from './$types';
 
@@ -50,7 +49,7 @@
         profile.
       </p>
       <div class="board-history">
-        {#each VISIBLE_TERMS as _, i}
+        {#each VISIBLE_TERMS as termCode, i (termCode)}
           <a href={termHrefs[i]} class="term-chip" class:active={data.termIndex === i}>
             {formattedTerms[i]}
           </a>

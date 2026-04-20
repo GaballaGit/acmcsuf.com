@@ -18,7 +18,7 @@
 
 <div class="term">
   <details class="option-box" bind:this={detailsElement}>
-    <summary class="selected" role="button">
+    <summary class="selected">
       {currentValue}
     </summary>
 
