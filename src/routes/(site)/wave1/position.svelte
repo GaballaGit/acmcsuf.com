@@ -32,7 +32,7 @@
     <p class="position__tools">
       <span class="acm-heavier position__tools__title">Tools:</span>
       <span class="position__tools__text"
-        >We used following tools to plan and keep up with the workload</span
+        >We use the following tools to plan and keep up with the workload</span
       >
       <RecursiveUL data={formattedTools} />
     </p>
