@@ -1,5 +1,4 @@
 <script lang="ts">
-  import ScrollToTop from '$lib/components/scroll-to-top/scroll.svelte';
   import Hackathon from './hackathon.svelte';
   import HACKATHONS from './data';
   import Spacing from '$lib/public/legacy/spacing.svelte';
@@ -99,8 +98,6 @@
 {/each}
 
 <Spacing --min="100px" --med="125px" --max="125px" />
-
-<ScrollToTop />
 
 <style>
   .page-header {
