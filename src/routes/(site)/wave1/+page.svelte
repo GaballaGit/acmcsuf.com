@@ -56,7 +56,7 @@
 
 <MetaTags
   openGraph={{
-    title: 'Fall 2025 Executive Board Applications',
+    title: 'Fall 2026 Executive Board Applications',
     description:
       'Listed below are the positions that are open for the Fall 2025 semester. Please read the descriptions carefully and apply for the position(s) that you are interested in. You may apply for multiple positions, but you may only be selected for one. If you are selected for a position, you will be contacted by the current board member in charge of that position.',
     url: 'https://acmcsuf.com/wave1',
@@ -71,7 +71,7 @@
 <Spacing --min="175px" --med="200px" --max="200px" />
 
 <Block align={TextAlignment.LEFT}>
-  <h1 slot="headline" class="size-lg">Fall 25 Executive Board Positions</h1>
+  <h1 slot="headline" class="size-lg">Fall 26 Executive Board Positions</h1>
   <p slot="text" class="size-sm">
     Listed below are the positions that are open for 25'/26' Executive Board positions. Please read
     the descriptions carefully and apply for the position(s) that you are interested in. You may
@@ -100,7 +100,7 @@
 <Spacing --med="64px" />
 
 <span class="center-btn">
-  <Button link="https://forms.gle/e4b9ADzgcEyU6HyK7" text="Apply now!" />
+  <Button link="https://forms.gle/KQ76h5cXgdmamqjV8" text="Apply now!" />
 </span>
 
 <Spacing --med="64px" />
