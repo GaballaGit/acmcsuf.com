@@ -9,14 +9,14 @@ import type { ClubPosition } from './position';
  */
 export const TOOLS = {
   'Google Drive/Docs': 'To collaborate on presentations, documents, and spreadsheets.',
-  'Discord': 'Internal team communication, assistance for student questions',
-  'Figma': 'Create marketing materials and teaching students how to use it',
-  'LeetCode': 'To prepare for interview technical assessments.',
-  'GitHub': 'To collaborate on code, manage projects, and teach students how to use it',
+  Discord: 'Internal team communication, assistance for student questions',
+  Figma: 'Create marketing materials and teaching students how to use it',
+  LeetCode: 'To prepare for interview technical assessments.',
+  GitHub: 'To collaborate on code, manage projects, and teach students how to use it',
   'Social media': 'Discord, Instagram, LinkedIn, and YouTube',
   'Google Colab/Juptyer Notebook': 'Cloud development environment for Python',
   'Unreal/Unity': 'Game development environment',
-  'TitanLink': 'For event management, booking meeting rooms, and managing club roster.',
+  TitanLink: 'For event management, booking meeting rooms, and managing club roster.',
   'Sage Intacct': 'The online financial system utilized by clubs to manage their Agency Account.',
 };
 
