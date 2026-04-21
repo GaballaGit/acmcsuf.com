@@ -5,7 +5,6 @@
   import { makeBlogPostsPageDataURL, makeBlogPostsPageURL } from '$lib/public/blog/urls';
   import BlogPostPreview from '$lib/components/blog/blog-post-preview.svelte';
 
-
   export let data: PageData;
 
   let selectedLabels: string[] = [...data.selectedLabels];
@@ -72,8 +71,6 @@
 {/if}
 
 <Spacing --min="40px" --med="95px" --max="120px" />
-
-
 
 <style lang="scss">
   .subtitle {

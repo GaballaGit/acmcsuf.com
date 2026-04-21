@@ -5,7 +5,6 @@
   import Teams from './teams.svelte';
   import Lucky from './lucky.svelte';
   import FAQ from './faq.svelte';
-
 </script>
 
 <svelte:head>
@@ -100,8 +99,6 @@
     <Spacing --min="75px" --med="100px" --max="120px" />
   </div> -->
 </div>
-
-
 
 <style>
   .section-container {
