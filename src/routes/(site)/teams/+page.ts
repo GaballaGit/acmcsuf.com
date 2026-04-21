@@ -8,6 +8,6 @@ export function load({ url }: Parameters<PageLoad>[0]) {
 
   return {
     termIndex: termIndex !== -1 ? termIndex : 0,
-    termCode: termIndex !== -1 ? (term as string) : (VISIBLE_TERMS[0] as string)
+    termCode: termIndex !== -1 ? (term as string) : (VISIBLE_TERMS[0] as string),
   };
 }
