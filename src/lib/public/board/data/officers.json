@@ -1167,8 +1167,7 @@
     "positions": {
       "F24": [{ "title": "AI Officer", "tier": 21 }],
       "S25": [{ "title": "AI Officer", "tier": 21 }],
-      "F25": [{ "title": "Dev Officer", "tier": 19 }],
-      "S26": [{ "title": "Dev Officer", "tier": 19 }]
+      "F25": [{ "title": "Dev Officer", "tier": 19 }]
     },
     "discord": "@kenny8092"
   },
@@ -1332,8 +1331,7 @@
     "picture": "talhah-raheem.webp",
     "positions": {
       "S25": [{ "title": "Dev Officer", "tier": 19 }],
-      "F25": [{ "title": "Dev Officer", "tier": 19 }],
-      "S26": [{ "title": "Dev Officer", "tier": 19 }]
+      "F25": [{ "title": "Dev Officer", "tier": 19 }]
     },
     "discord": "@arrow5566"
   },
@@ -1406,8 +1404,7 @@
     "picture": "ender-batu.webp",
     "positions": {
       "S25": [{ "title": "AI Officer", "tier": 21 }],
-      "F25": [{ "title": "AI Officer", "tier": 21 }],
-      "S26": [{ "title": "AI Officer", "tier": 21 }]
+      "F25": [{ "title": "AI Officer", "tier": 21 }]
     },
     "discord": "@rothchild"
   },
@@ -1695,8 +1692,7 @@
     "fullName": "Maverick Malfavon",
     "picture": "maverick-malfavon.webp",
     "positions": {
-      "F25": [{ "title": "Game Dev Officer", "tier": 23 }],
-      "S26": [{ "title": "Game Dev Officer", "tier": 23 }]
+      "F25": [{ "title": "Game Dev Officer", "tier": 23 }]
     },
     "discord": "@mavreal"
   },
@@ -1731,8 +1727,7 @@
       "F25": [
         { "title": "Game Dev Officer", "tier": 23 },
         { "title": "Algo Officer", "tier": 12 }
-      ],
-      "S26": [{ "title": "Algo Officer", "tier": 12 }]
+      ]
     },
     "discord": "@bald0398"
   },
