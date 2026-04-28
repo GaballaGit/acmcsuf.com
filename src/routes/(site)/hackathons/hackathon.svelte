@@ -68,7 +68,9 @@
     height: 560px;
     overflow: hidden;
     border-radius: 16px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
   }
   .hackathon-image-wrapper:hover {
     transform: scale(1.03);

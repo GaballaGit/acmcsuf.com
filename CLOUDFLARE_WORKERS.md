@@ -11,7 +11,6 @@ We're building with the official [@sveltejs/adapter-cloudflare](https://github.c
 ### Build Process
 
 1. **SvelteKit Build** (`vite build`):
-
    - Compiles Svelte components
    - Bundles JavaScript/CSS
    - Generates worker entry point
@@ -77,7 +76,6 @@ The adapter generates Worker-compatible code.
 The site uses **Cloudflare's GitHub integration** for automatic deployments:
 
 1. **On push to `main` branch**:
-
    - Deploys to production URL
 
 2. **On pull requests**:

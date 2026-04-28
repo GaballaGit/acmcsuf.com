@@ -29,7 +29,9 @@
     border-radius: 8px;
     background: rgb(250, 249, 249);
     text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
     height: 160px;
   }
 
