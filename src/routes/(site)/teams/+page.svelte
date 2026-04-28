@@ -4,8 +4,11 @@
   import { termIndex } from '$lib/public/board/utils';
   import Spacing from '$lib/public/legacy/spacing.svelte';
   import TeamSection from './team-section.svelte';
-  import Select from '$lib/components/select/select.svelte';
   import ScrollToTop from '$lib/components/scroll-to-top/scroll.svelte';
+  import { page } from '$app/stores';
+  import type { PageData } from './$types';
+
+  export let data: PageData;
 
   /**
    * @param termCode ex: `F21`, `S22`, etc.
@@ -18,13 +21,21 @@
   }
 
   const formattedTerms = VISIBLE_TERMS.map(formatTerm);
-  let currentFormattedTerm = formattedTerms[$termIndex];
-  $: $termIndex = formattedTerms.indexOf(currentFormattedTerm);
+
+  $: if (data.termIndex !== undefined) {
+    $termIndex = data.termIndex;
+  }
+
+  const termHrefs = VISIBLE_TERMS.map((term) => {
+    const url = new URL($page.url);
+    url.searchParams.set('term', term);
+    return url.toString();
+  });
 </script>
 
 <Spacing --min="175px" --med="200px" --max="200px" />
 
-<section class="hero-container">
+<section id="top" class="hero-container">
   <div class="hero-inner-container">
     <div class="hero-text">
       <h1 class="acm-heavier size-xl">Explore our teams</h1>
@@ -37,11 +48,81 @@
         Feel free to reach out to board members through their Discord username, stated below their
         profile.
       </p>
-      <div class="semester-button">
-        <Select bind:defaultValue={currentFormattedTerm} options={formattedTerms} />
+      <div class="board-history">
+        {#each VISIBLE_TERMS as termCode, i (termCode)}
+          <a href={termHrefs[i]} class="term-chip" class:active={data.termIndex === i}>
+            {formattedTerms[i]}
+          </a>
+        {/each}
       </div>
     </div>
     <img src="/assets/capy-read.svg" alt="Chip the Capybara reading a book" />
+  </div>
+  <Spacing --min="75px" --med="100px" --max="100px" />
+</section>
+
+<section class="team-container">
+  <div class="team-icons-inner-container">
+    <div class="icon">
+      <a href="#general" class="general">
+        <img src="/assets/general-logo.svg" alt="acm-logo" width="125px" height="125px" />
+      </a>
+      <p class="acm-heaviest">General</p>
+    </div>
+    <div class="icon">
+      <a href="#ai" class="ai">
+        <img src="/assets/ai-logo.svg" alt="ai-logo" width="125px" height="125px" />
+      </a>
+      <p class="acm-heaviest">AI</p>
+    </div>
+    <div class="icon">
+      <a href="#algo" class="algo">
+        <img src="/assets/algo-logo.svg" alt="algo-logo" width="125px" height="125p" />
+      </a>
+      <p class="acm-heaviest">Algo</p>
+    </div>
+    <div class="icon">
+      <a href="#design" class="design">
+        <img src="/assets/design-logo.svg" alt="design-logo" width="125px" height="125px" />
+      </a>
+      <p class="acm-heaviest">Design</p>
+    </div>
+    <div class="icon">
+      <a href="#dev" class="dev">
+        <img src="/assets/dev-logo.svg" alt="dev-logo" width="125px" height="125px" />
+      </a>
+      <p class="acm-heaviest">Dev</p>
+    </div>
+    <div class="icon">
+      <a href="#gamedev" class="gamedev">
+        <img src="/assets/gamedev-logo.svg" alt="gamedev-logo" width="125px" height="125px" />
+      </a>
+      <p class="acm-heaviest">Game Dev</p>
+    </div>
+    <div class="icon">
+      <a href="#icpc" class="icpc">
+        <img src="/assets/icpc-logo.svg" alt="icpc-logo" width="125px" height="125px" />
+      </a>
+      <p class="acm-heaviest">ICPC</p>
+    </div>
+    <div class="icon">
+      <a href="#marketing" class="marketing">
+        <img src="/assets/marketing-logo.svg" alt="marketing-logo" width="100px" height="100px" />
+      </a>
+      <p class="acm-heaviest">Marketing</p>
+    </div>
+    <div class="icon">
+      <a href="#nodebuds" class="nodebuds">
+        <img src="/assets/nodebuds-logo-old.svg" alt="nodebuds-logo" width="100px" height="100px" />
+      </a>
+      <p class="acm-heaviest">Node Buds</p>
+    </div>
+    <div class="icon">
+      <a href="#oss" class="oss">
+        <img src="/assets/oss-logo.svg" alt="oss-logo" width="100px" height="100px" />
+      </a>
+      <p class="acm-heaviest">Open Source</p>
+    </div>
   </div>
   <Spacing --min="100px" --med="125px" --max="125px" />
 </section>
@@ -169,9 +250,43 @@
   }
 
   section .hero-inner-container .hero-text {
-    display: grid;
+    display: flex;
+    flex-direction: column;
     align-items: center;
     text-align: center;
+    gap: 1em;
+  }
+
+  .board-history {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+  .term-chip {
+    padding: 6px 16px;
+    font-size: var(--size-xs);
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 20px;
+    border: 2px solid var(--acm-sky);
+    color: var(--acm-blue);
+    transition: all 0.2s ease-in-out;
+  }
+
+  .term-chip:hover {
+    background-color: var(--acm-sky);
+    color: white;
+    transform: translateY(-2px);
+  }
+
+  .term-chip.active {
+    background-color: var(--acm-blue);
+    border-color: var(--acm-blue);
+    color: white;
+    box-shadow: 0 4px 12px rgba(44, 145, 198, 0.3);
   }
 
   section .hero-inner-container .hero-text p {
@@ -182,6 +297,62 @@
   section .hero-inner-container img {
     max-width: clamp(20rem, 17.342rem + 10.13vw, 30rem);
     justify-self: center;
+  }
+
+  section .team-icons-inner-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(125px, 1fr));
+    column-gap: 50px;
+    row-gap: 30px;
+    justify-content: center;
+    padding: 10px;
+  }
+
+  section .team-icons-inner-container .icon {
+    display: grid;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+  }
+
+  section .team-icons-inner-container .icon a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  section .team-icons-inner-container .general :hover {
+    cursor: pointer;
+    transform: scale(1.07);
+    filter: brightness(97%);
+  }
+
+  section .team-icons-inner-container a :hover {
+    cursor: pointer;
+    transform: scale(1.07);
+    filter: brightness(95%);
+  }
+
+  section .team-icons-inner-container .general :active {
+    filter: brightness(92%);
+  }
+
+  section .team-icons-inner-container a :active {
+    filter: brightness(90%);
+  }
+
+  section .team-icons-inner-container .icon a img {
+    width: 100%;
+    height: auto;
+  }
+
+  section .team-icons-inner-container .icon p {
+    width: auto;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
   }
 
   @media screen and (min-width: 1000px) {
@@ -201,12 +372,21 @@
     }
 
     section .hero-inner-container .hero-text {
+      align-items: flex-start;
       text-align: start;
       gap: 1em;
     }
 
+    .board-history {
+      justify-content: flex-start;
+    }
+
     section .hero-inner-container .hero-text p {
       margin: 0;
+    }
+
+    section .team-icons-inner-container {
+      grid-template-columns: repeat(5, minmax(125px, 1fr));
     }
   }
 

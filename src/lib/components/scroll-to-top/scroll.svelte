@@ -1,13 +1,8 @@
 <script lang="ts">
   import { onMount } from 'svelte';
 
-  // Back to top button visibility
+  // Back to top button visibility (only for JS users)
   let showBackToTop = false;
-
-  // Scroll to top function
-  function scrollToTop() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
 
   onMount(() => {
     function handleScroll() {
@@ -20,14 +15,16 @@
   });
 </script>
 
-<button
-  class="back-to-top"
-  class:visible={showBackToTop}
-  on:click={scrollToTop}
-  aria-label="Back to top"
->
-  ↑
-</button>
+<noscript>
+  <style>
+    .back-to-top {
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
+  </style>
+</noscript>
+
+<a href="#top" class="back-to-top" class:visible={showBackToTop} aria-label="Back to top"> ↑ </a>
 
 <style>
   /* Back to top button */
@@ -38,7 +35,7 @@
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background: #00b0ff;
+    background: var(--acm-sky);
     color: white;
     border: none;
     font-size: 1.5rem;
@@ -46,13 +43,17 @@
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0, 176, 255, 0.4);
+    box-shadow: 0 4px 15px rgba(var(--acm-sky-rgb), 0.4);
     z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
   }
   .back-to-top:hover {
-    background: #00c8ff;
+    background: var(--acm-blue);
     transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(0, 176, 255, 0.5);
+    box-shadow: 0 6px 20px rgba(var(--acm-sky-rgb), 0.5);
   }
   .back-to-top.visible {
     opacity: 1;
