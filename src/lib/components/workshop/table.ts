@@ -1,4 +1,4 @@
-export type semesters = 'fa24' | 'sp25' | 'fa25';
+export type semesters = 'fa24' | 'sp25' | 'fa25' | 'sp26';
 export type teams =
   | 'ai'
   | 'algo'
